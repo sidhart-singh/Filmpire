@@ -17,7 +17,7 @@ const useAlan = () => {
 
   useEffect(() => {
     alanBtn({
-      key: "cccdc344eadc7e87ef362fbd5114b4ec2e956eca572e1d8b807a3e2338fdd0dc/stage",
+      key: import.meta.env.VITE_APP_ALAN_KEY,
       onCommand: ({ command, mode, genres, genreOrCategory, query }) => {
         if (command === "chooseGenre") {
           const foundGenre = genres.find(
