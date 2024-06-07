@@ -11,7 +11,7 @@ import {
 } from "../features/currentGenreorCategory";
 
 const useAlan = () => {
-  const { setMode } = useContext(ColorModeContext);
+  const { setMode, toggleColorMode } = useContext(ColorModeContext);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -37,7 +37,9 @@ const useAlan = () => {
             dispatch(selectGenreOrCategory(category));
           }
         } else if (command === "changeMode") {
-          if (mode === "light") {
+          if (!mode) {
+            toggleColorMode();
+          } else if (mode === "light") {
             setMode("dark");
           } else {
             setMode("light");
